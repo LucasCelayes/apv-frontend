@@ -1,7 +1,7 @@
 import usePacientes from "../hooks/usePacientes"
 const Paciente = ({paciente}) => {
     const {setEdicion,eliminarPaciente} = usePacientes()
-    const {email,fecha,nombre,propietario,_id,sintomas} = paciente
+    const {email,fecha,nombre,propietario,_id,sintomas,raza,anos,telefono,cedula,tipodemascota,peso,vacunas,tratamiento} = paciente
   console.log(fecha)
   const formatearFecha = (fecha) => {
     const nuevaFecha = new Date(fecha)
@@ -19,12 +19,37 @@ const Paciente = ({paciente}) => {
         <p className="font-bold uppercase text-green-500">email: {''}
         <span className="font-normal normal-case text-black">{email}</span>
         </p>
+        <p className="font-bold uppercase text-green-500">Telefono: {''}
+        <span className="font-normal normal-case text-black">{telefono}</span>
+        </p>
+        <p className="font-bold uppercase text-green-500">Cedula: {''}
+        <span className="font-normal normal-case text-black">{cedula}</span>
+        </p>
+        <p className="font-bold uppercase text-green-500">Fecha de ingreso a Veterinaria: {''}
+        <span className="font-normal normal-case text-black">{formatearFecha(fecha)}</span>
+        </p>
+        <p className="font-bold uppercase text-green-500">Tipo de mascota: {''}
+        <span className="font-normal normal-case text-black">{tipodemascota}</span>
+        </p>
+        <p className="font-bold uppercase text-green-500">Raza: {''}
+        <span className="font-normal normal-case text-black">{raza}</span>
+        </p>
+        <p className="font-bold uppercase text-green-500">Edad: {''}
+        <span className="font-normal normal-case text-black">{anos}</span>
+        </p>
+        <p className="font-bold uppercase text-green-500">Peso: {''}
+        <span className="font-normal normal-case text-black">{peso}</span>
+        </p>
+        <p className="font-bold uppercase text-green-500">Vacunas: {''}
+        <span className="font-normal normal-case text-black">{vacunas}</span>
+        </p>
         <p className="font-bold uppercase text-green-500">sintomas: {''}
         <span className="font-normal normal-case text-black">{sintomas}</span>
         </p>
-        <p className="font-bold uppercase text-green-500">fecha: {''}
-        <span className="font-normal normal-case text-black">{formatearFecha(fecha)}</span>
+        <p className="font-bold uppercase text-green-500">tratamiento: {''}
+        <span className="font-normal normal-case text-black">{tratamiento}</span>
         </p>
+      
         <p className="font-bold uppercase text-green-500">id: {''}
         <span className="font-normal normal-case text-black">{_id}</span>
         </p>

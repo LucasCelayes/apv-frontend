@@ -13,7 +13,7 @@
 
 <p className="text-xl mt-5 mb-10 text-center">
   Administra tus 
-  <span className="text-green-500 font-bold"> Pacientes y Citas
+  <span className="text-green-500 font-bold"> Pacientes
   </span>
 </p>
       {pacientes.map(paciente => (

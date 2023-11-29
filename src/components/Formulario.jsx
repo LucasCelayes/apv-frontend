@@ -5,10 +5,18 @@ import usePacientes from "../hooks/usePacientes";
 
     const [nombre, setNombre] = useState('')
     const [propietario, setPropietario] = useState('')
+    const [telefono, setTelefono] = useState('')
+    const [ cedula, setCedula] = useState('')
+    const [tipodemascota,setTipodemascota] = useState('')
+    const [peso,setPeso] = useState('')
+    const [vacunas,setVacunas] = useState('')
     const [email, setEmail] = useState('')
     const [fecha, setFecha] = useState('')
     const [sintomas, setSintomas] = useState('')
     const [alerta, setAlerta] = useState('')
+    const [tratamiento,setTratamiento] = useState('')
+    const [raza,setRaza] = useState('')
+    const [anos,setAnos] = useState('')
    const [id,setId] = useState(null)
     const {guardarPaciente,paciente} = usePacientes()
     useEffect(() => {
@@ -19,6 +27,14 @@ import usePacientes from "../hooks/usePacientes";
         setFecha(paciente.fecha)
         setSintomas(paciente.sintomas)
         setId(paciente._id)
+        setTelefono(paciente.telefono)
+        setCedula(paciente.cedula)
+        setTipodemascota(paciente.tipodemascota)
+        setPeso(paciente.peso)
+        setVacunas(paciente.vacunas)
+        setTratamiento(paciente.tratamiento)
+        setRaza(paciente.raza)
+        setAnos(paciente.anos)
     }      
     },[paciente])
     
@@ -27,7 +43,7 @@ import usePacientes from "../hooks/usePacientes";
         e.preventDefault()
 
         // validar el formulario
-        if([nombre,propietario,email,fecha,sintomas].includes('')) {
+        if([nombre,propietario,raza,anos,email,fecha,sintomas,telefono,cedula,tipodemascota,peso,vacunas,tratamiento].includes('')) {
             setAlerta({
                 msg:'todos los campos son obligatorios',
                 error:true
@@ -35,7 +51,7 @@ import usePacientes from "../hooks/usePacientes";
             return
         }
         setAlerta({})
-        guardarPaciente({nombre,propietario,email,fecha,sintomas,id})
+        guardarPaciente({nombre,raza,anos,propietario,email,fecha,sintomas,id,telefono,cedula,tipodemascota,peso,vacunas,tratamiento})
         setAlerta({
             msg: 'guardado Correctamente'
         })
@@ -45,6 +61,14 @@ import usePacientes from "../hooks/usePacientes";
         setFecha('')
         setSintomas('')
         setId('')
+        setTelefono('')
+        setCedula('')
+        setTipodemascota('')
+        setPeso('')
+        setVacunas('')
+        setTratamiento('')
+        setRaza('')
+        setAnos('')
     }
     const {msg} = alerta
     return (
@@ -97,7 +121,30 @@ import usePacientes from "../hooks/usePacientes";
         </div>
 
         <div className="mb-5">
-            <label>Fecha</label>
+            <label>Telefono</label>
+            <input 
+            id='telefono'
+            type='text'
+            placeholder="Telefono del Propietario"
+            className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+            value={telefono}
+            onChange={e => setTelefono(e.target.value)}
+            />
+        </div>
+
+        <div className="mb-5">
+            <label>Cedula</label>
+            <input 
+            id='cedula'
+            type='text'
+            placeholder="Cedula del Propietario"
+            className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+            value={cedula}
+            onChange={e => setCedula(e.target.value)}
+            />
+        </div>
+        <div className="mb-5">
+            <label>Fecha de ingreso a Veterinaria</label>
             <input 
             id='fecha'
             type='date'
@@ -107,7 +154,63 @@ import usePacientes from "../hooks/usePacientes";
             />
             
         </div>
+        <div className="mb-5">
+            <label>Tipo de mascota</label>
+            <input 
+            id='tipodemascota'
+            type='text'
+            placeholder="Tipo de mascota"
+            className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+            value={tipodemascota}
+            onChange={e => setTipodemascota(e.target.value)}
+            />
+        </div>
+        <div className="mb-5">
+            <label>Raza</label>
+            <input 
+            id='raza'
+            type='text'
+            placeholder="Raza"
+            className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+            value={raza}
+            onChange={e => setRaza(e.target.value)}
+            />
+        </div>
+        <div className="mb-5">
+            <label>Edad</label>
+            <input 
+            id='anos'
+            type='text'
+            placeholder="Edad de la mascota"
+            className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+            value={anos}
+            onChange={e => setAnos(e.target.value)}
+            />
+        </div>
 
+        
+        <div className="mb-5">
+            <label>Peso de la mascota</label>
+            <input 
+            id='peso'
+            type='text'
+            placeholder="10 KG"
+            className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+            value={peso}
+            onChange={e => setPeso(e.target.value)}
+            />
+        </div>
+        <div className="mb-5">
+            <label>Vacunas</label>
+            <input 
+            id='vacunas'
+            type='text'
+            placeholder="Vacunas"
+            className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+            value={vacunas}
+            onChange={e => setVacunas(e.target.value)}
+            />
+        </div>
         <div className="mb-5">
             <label>Sintomas</label>
             <textarea 
@@ -116,6 +219,16 @@ import usePacientes from "../hooks/usePacientes";
             className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
             value={sintomas}
             onChange={e => setSintomas(e.target.value)}
+            />
+        </div>
+        <div className="mb-5">
+            <label>Tratamiento</label>
+            <textarea 
+            id='tratamiento'
+            placeholder="Describe el tratamiento"
+            className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
+            value={tratamiento}
+            onChange={e => setTratamiento(e.target.value)}
             />
         </div>
 
