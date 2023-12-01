@@ -11,7 +11,7 @@ const Header = () => {
             {''}
             <span className="text-white font-black"> Veterinaria</span>
             </h1>
-            <nav className="flex gap-4">
+            <nav className="flex gap-2">
                 <Link to="/admin" className="text-white text-sm uppercase no-underline font-bold">Pacientes</Link>
                 <Link to="/admin/perfil" className="text-white text-sm uppercase font-bold no-underline">Configuracion</Link>
              
