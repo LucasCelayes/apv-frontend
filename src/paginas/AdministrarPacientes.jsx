@@ -8,7 +8,7 @@ const [mostrarFormulario,setMostrarFormulario] = useState(false);
     <div className="flex flex-col md:flex-row">
         <button
         type="button"
-        className="bg-indigo-600 text-white font-bold uppercase mx-10 p-3 rounded-md mb-10
+        className="bg-green-600  text-white font-bold uppercase mx-10 p-3 rounded-md mb-10
         md:hidden"
         onClick={() => setMostrarFormulario(!mostrarFormulario)}
         >{mostrarFormulario ? 'Ocultar Formulario' : 'Mostrar Formulario'}</button>

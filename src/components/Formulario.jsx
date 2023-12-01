@@ -51,7 +51,8 @@ import usePacientes from "../hooks/usePacientes";
             return
         }
         setAlerta({})
-        guardarPaciente({nombre,raza,anos,propietario,email,fecha,sintomas,id,telefono,cedula,tipodemascota,peso,vacunas,tratamiento})
+        guardarPaciente({nombre,raza,anos,propietario,email,fecha,sintomas,id,telefono,cedula,
+            tipodemascota,peso,vacunas,tratamiento})
         setAlerta({
             msg: 'guardado Correctamente'
         })
